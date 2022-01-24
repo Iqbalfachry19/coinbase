@@ -7,8 +7,10 @@ import BalanceChart from "./BalanceChart";
 
 function Portfolio({ thirdWebTokens, sanityTokens, walletAddress }) {
   const [walletBalance, setWalletBalance] = useState(0);
-  const tokenToUSD = {};
-
+  const tokenToUSD = useMemo(() => {
+    return {};
+  }, []);
+  console.log(tokenToUSD);
   for (const token of sanityTokens) {
     tokenToUSD[token.contractAddress] = Number(token.usdPrice);
   }
